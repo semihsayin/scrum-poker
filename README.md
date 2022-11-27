@@ -1,1 +1,9 @@
-# scrum-poker
+# Scrum-Poker
+
+```bash
+yarn install
+```
+
+```bash
+yarn
+```
