@@ -6,7 +6,10 @@ import path from "node:path";
 export default defineConfig({
   resolve:{
     alias:{
-      '@components' : path.resolve(__dirname, './src/components')
+      '@components' : path.resolve(__dirname, './src/components'),
+      '@modules':path.resolve(__dirname, './src/modules'),
+      '@pages':path.resolve(__dirname, './src/pages'),
+      '@redux':path.resolve(__dirname, './src/redux')
     }
   },
   plugins: [react()]

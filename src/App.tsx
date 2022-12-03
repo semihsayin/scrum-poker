@@ -1,11 +1,9 @@
-import { useState } from 'react'
-import CardContainer from './modules/cardContainer/CardContainer';
+import GamePage from "@pages/GamePage"
 
 function App() {
-
   return (
     <div className="App">
-      <CardContainer />
+      <GamePage />
     </div>
   )
 }
