@@ -1,26 +1,30 @@
-import { MouseEvent, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCardPoint } from '@redux/reducers/cardPoint';
+import { RootState } from '@redux/store';
 import styles from './Card.module.css';
 
 interface CardButtonProps {
     point: number,
-    value: string
 }
 
-const Card = ({ point, value }: CardButtonProps) => {
+const Card = ({ point }: CardButtonProps) => {
 
-    const [selected, setSelected] = useState(false);
+    const cardPoint = useSelector((state: RootState) => state.cardPoint.point);
+    const dispatch = useDispatch();
 
-    const cardButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-        setSelected(!selected);
-        if (!selected) {
-            console.log(event.currentTarget.getAttribute("data-point"));
+    const cardButtonClick = (point: number) => {
+        if (cardPoint != point) {
+            dispatch(setCardPoint(point));
+        }
+        else {
+            dispatch(setCardPoint(null));
         }
     }
 
     return (
         <li className={styles.cardItem}>
-            <button data-point={point} onClick={cardButtonClick} className={`${styles.button} ${selected ? styles.selected : ''}`}>
-                <span>{value} </span>
+            <button data-point={point} onClick={() => cardButtonClick(point)} className={`${styles.button} ${cardPoint === point ? styles.selected : ''}`}>
+                <span>{point} </span>
             </button >
         </li >
     )
