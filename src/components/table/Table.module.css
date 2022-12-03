@@ -1,0 +1,16 @@
+.tableDiv{
+    background: #d7e9ff;
+    border-radius: 2.8rem;
+    grid-area: table;
+    height: auto;
+    margin: 0 auto;
+    min-height: 15.1rem;
+    min-width: 33.8rem;
+    padding: 0 1.6rem;
+    position: relative;
+    width: 33.8rem;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}

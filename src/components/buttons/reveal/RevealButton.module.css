@@ -1,0 +1,15 @@
+.revealButton{
+    cursor: pointer;
+    width: 150px;
+    height: 25px;
+    font-size: 20px;
+    font-weight: 350;
+    letter-spacing: .02em;
+    text-align: center;
+    box-sizing: border-box;
+    outline-color: #74b3ff;
+    position: absolute;
+    top: 0;
+    background-color: #74b3ff;
+    border-radius: 10;
+}
