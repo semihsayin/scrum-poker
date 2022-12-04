@@ -6,6 +6,8 @@ const StartNewButton = () => {
 
     }
     return (
-        <span onClick={startNewVote} className={styles.startButton}>Reveal Cards</span>
+        <button onClick={startNewVote} className={styles.startButton}>Start New Vote</button>
     )
 }
+
+export default StartNewButton;
