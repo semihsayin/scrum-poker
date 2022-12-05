@@ -1,8 +1,8 @@
 .startButton{
     cursor: pointer;
     width: 150px;
-    height: 25px;
-    font-size: 20px;
+    height: 35px;
+    font-size: 10px;
     font-weight: 350;
     letter-spacing: .02em;
     text-align: center;
@@ -12,4 +12,10 @@
     bottom: 0;
     background-color: #74b3ff;
     border-radius: 10;
+}
+
+.counterDiv{
+    width: 100px;
+    height: 100px;
+    background-color: #FFFFFF;
 }
