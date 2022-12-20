@@ -13,3 +13,7 @@
     background-color: #74b3ff;
     border-radius: 10;
 }
+
+.displayNoneButton{
+    display: none;
+}

@@ -19,3 +19,7 @@
     height: 100px;
     background-color: #FFFFFF;
 }
+
+.displayNoneButton{
+    display: none;
+}
