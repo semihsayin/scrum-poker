@@ -11,55 +11,70 @@ import {useState} from 'react';
 interface CounterProps {
     status: () => void
 }
-export const CounterDiv = () => {
-    const [counter, setCounter] = React.useState(3);
+
+export const CounterDiv = (
+    {counter, setCounter, changeCountStatus} : { 
+        counter: number, 
+        setCounter: (count: number) => void,
+        changeCountStatus: (val: boolean) => void,
+    }) => {
+
     React.useEffect(() => {
         counter > 0 && setTimeout(() => setCounter(counter - 1), 1000);
+        if(counter == 0) {
+            changeCountStatus(false)
+        }
     },[counter])
+
 
     return (
         <div className={styles.counterDivs}>
-            { counter }
+            {
+                counter === 0
+                ? <></>
+                :<>{ counter }</>
+            }
         </div>
     )
 }
 
-const RevealButton = () => {
+const RevealButton = ( 
+        {changeStatus}: { changeStatus:( val : boolean) => void }
+    ) => {
 
     const [isActive, setIsActive] = useState(false);
     const cardStatus = useSelector((state: RootState) => state.cardStatus.status);
     const cardPoint = useSelector((state: RootState) => state.cardPoint.point);
     const dispatch = useDispatch();
 
-    
-
     const [revealStatus, setRevealStatus] = useState(true);
-
     const [counterStatus, setCounterStatus] = useState(false);
-
-    /*const [startStatus, setStartStatus] = useState(false);
-
-    const countStartStatus = (status:boolean) => {
-        setStartStatus(status)
-    }*/
+    const [counter, setCounter] = useState(3);
 
     const showCardNumber = () => {
-        setCounterStatus(true)
+        changeStatus(true);
         if (cardPoint) {
             dispatch(setCardStatus(true));
         }
+        setCounterStatus(true)
+        setRevealStatus(false)
     }
 
-    //TODO counter buton ile tetiklenicek. Counter bittiğinde StartNew butonu gözükücek
+    const startNewVote = () => {
+        console.log(counter)
+    }
 
+    const changeCountStatus = ( statusCount: boolean) => {
+        setCounterStatus(statusCount);
+    }
+    
     return (
         <>
-            <button onClick={showCardNumber} className={`${styles.button} ${revealStatus === false ? styles.displayNoneButton : styles.revealButton }`}>Reveal Cards {startStatus}</button>
+            <button onClick={showCardNumber} className={`${styles.button} ${revealStatus === false ? styles.displayNoneButton : styles.revealButton }`}>Reveal Cards</button>
             { counterStatus
-                ? <CounterDiv />
-                : <></>
+                ? <CounterDiv setCounter={setCounter} counter = {counter} changeCountStatus= { changeCountStatus} />
+                : <StartNewButton revealCard = { revealStatus }/>
             }
-            <StartNewButton revealCard = { revealStatus }/>
         </>
     )
 }
