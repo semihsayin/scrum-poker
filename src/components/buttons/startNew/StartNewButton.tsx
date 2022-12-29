@@ -6,7 +6,7 @@ const StartNewButton = (props: { revealCard: boolean}) => {
 
     }
     return (
-        <button onClick={startNewVote} className={`${styles.button} ${props.revealCard === false ? styles.displayNoneButton : styles.startButton }`}>Start New Vote</button>
+        <button onClick={startNewVote} className={`${styles.button} ${props.revealCard === true ? styles.displayNoneButton : styles.startButton }`}>Start New Vote</button>
     )
 }
 
