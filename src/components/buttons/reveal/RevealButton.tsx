@@ -16,13 +16,13 @@ export const CounterDiv = (
     {counter, setCounter, changeCountStatus} : { 
         counter: number, 
         setCounter: (count: number) => void,
-        changeCountStatus: (val: boolean) => void,
+        changeCountStatus: (val: boolean, checkStatus: boolean) => void,
     }) => {
 
     React.useEffect(() => {
         counter > 0 && setTimeout(() => setCounter(counter - 1), 1000);
         if(counter == 0) {
-            changeCountStatus(false)
+            changeCountStatus(false,false)
         }
     },[counter])
 
@@ -46,10 +46,10 @@ const RevealButton = (
     const cardStatus = useSelector((state: RootState) => state.cardStatus.status);
     const cardPoint = useSelector((state: RootState) => state.cardPoint.point);
     const dispatch = useDispatch();
-
     const [revealStatus, setRevealStatus] = useState(true);
     const [counterStatus, setCounterStatus] = useState(false);
-    const [counter, setCounter] = useState(3);
+    const [counter, setCounter] = useState(0); //cardStatus 3 saniye sonra true yapılabildikten sonra counter 3 olarak ayarlanıcak
+    const [countCheck, setCountCheck] = useState(true);
 
     const showCardNumber = () => {
         changeStatus(true);
@@ -60,12 +60,9 @@ const RevealButton = (
         setRevealStatus(false)
     }
 
-    const startNewVote = () => {
-        console.log(counter)
-    }
-
-    const changeCountStatus = ( statusCount: boolean) => {
+    const changeCountStatus = ( statusCount: boolean, countCheck: boolean) => {
         setCounterStatus(statusCount);
+        setCountCheck(countCheck);
     }
     
     return (
