@@ -50,6 +50,10 @@
     margin-top: 0;
 }
 
+.dNoneSpan{
+    display: none;
+}
+
 @media (min-width: 920px){
     .container {
         max-width: auto;
