@@ -9,10 +9,13 @@ interface SubscriberCardProps {
 const SubscriberCard = ({ userName }: SubscriberCardProps) => {
 
     const cardPoint = useSelector((state: RootState) => state.cardPoint.point);
+    const cardStatus = useSelector((state: RootState) => state.cardStatus.status);
 
     return (
         <div className={`${styles.container}`}>
-            <div className={`${styles.subsCard} ${cardPoint != null ? styles.selected : ''}`}></div>
+            <div style={{display:'flex', alignItems: 'center', justifyContent: 'center'}} className={`${styles.subsCard} ${cardPoint == null ? '' : (cardStatus == true ? '' : styles.selected ) }`}>
+                <span className={`${ cardStatus == false ? styles.dNoneSpan : '' }` }>{ cardPoint}</span>
+            </div>
             <div className={styles.subsName}>{userName}</div>
         </div >
     )
