@@ -48,7 +48,7 @@ const RevealButton = (
     const dispatch = useDispatch();
     const [revealStatus, setRevealStatus] = useState(true);
     const [counterStatus, setCounterStatus] = useState(false);
-    const [counter, setCounter] = useState(0); //cardStatus 3 saniye sonra true yapılabildikten sonra counter 3 olarak ayarlanıcak
+    const [counter, setCounter] = useState(3); 
     const [countCheck, setCountCheck] = useState(true);
 
     const showCardNumber = () => {
