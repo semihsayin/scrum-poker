@@ -13,8 +13,13 @@ const SubscriberCard = ({ userName }: SubscriberCardProps) => {
 
     return (
         <div className={`${styles.container}`}>
-            <div style={{display:'flex', alignItems: 'center', justifyContent: 'center'}} className={`${styles.subsCard} ${cardPoint == null ? '' : (cardStatus == true ? '' : styles.selected ) }`}>
-                <span className={`${ cardStatus == false ? styles.dNoneSpan : '' }` }>{ cardPoint}</span>
+            <div style={{display:'flex', alignItems: 'center', justifyContent: 'center'}} className={`${styles.subsCard} ${cardPoint == null ? '' : styles.selected }`}>
+
+                { (cardPoint != null && cardStatus == true)
+                    ? <span>{ cardPoint}</span>
+                    :<></>
+                }
+                
             </div>
             <div className={styles.subsName}>{userName}</div>
         </div >
