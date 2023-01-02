@@ -2,10 +2,9 @@
 import * as React from "react";
 import styles from "./RevealButton.module.css"
 import StartNewButton from "@components/buttons/startNew/StartNewButton";
-import { setCardStatus } from "@redux/reducers/cardPoint";
+import { setCardStatus, setCounterStatus } from "@redux/reducers/cardPoint";
 import { RootState } from "@redux/store";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {useState} from 'react';
 
 interface CounterProps {
@@ -16,13 +15,15 @@ export const CounterDiv = (
     {counter, setCounter, changeCountStatus} : { 
         counter: number, 
         setCounter: (count: number) => void,
-        changeCountStatus: (val: boolean, checkStatus: boolean) => void,
+        changeCountStatus: (val: boolean) => void,
     }) => {
 
+    const dispatch = useDispatch();
     React.useEffect(() => {
         counter > 0 && setTimeout(() => setCounter(counter - 1), 1000);
-        if(counter == 0) {
-            changeCountStatus(false,false)
+        if(counter === 0) {
+            changeCountStatus(false)
+            dispatch(setCounterStatus(true))
         }
     },[counter])
 
@@ -41,15 +42,11 @@ export const CounterDiv = (
 const RevealButton = ( 
         {changeStatus}: { changeStatus:( val : boolean) => void }
     ) => {
-
-    const [isActive, setIsActive] = useState(false);
-    const cardStatus = useSelector((state: RootState) => state.cardStatus.status);
     const cardPoint = useSelector((state: RootState) => state.cardPoint.point);
     const dispatch = useDispatch();
     const [revealStatus, setRevealStatus] = useState(true);
     const [counterStatus, setCounterStatus] = useState(false);
     const [counter, setCounter] = useState(3); 
-    const [countCheck, setCountCheck] = useState(true);
 
     const showCardNumber = () => {
         changeStatus(true);
@@ -60,9 +57,8 @@ const RevealButton = (
         setRevealStatus(false)
     }
 
-    const changeCountStatus = ( statusCount: boolean, countCheck: boolean) => {
+    const changeCountStatus = ( statusCount: boolean) => {
         setCounterStatus(statusCount);
-        setCountCheck(countCheck);
     }
     
     return (
