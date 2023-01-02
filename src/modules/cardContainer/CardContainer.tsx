@@ -1,9 +1,14 @@
 import Card from "@components/card/Card";
+import { RootState } from "@redux/store";
+import { useSelector } from "react-redux";
 import styles from "./CardContainer.module.css";
 
 const CardContainer = () => {
+
+    const cardStatus = useSelector((state: RootState) => state.cardStatus.status);
+
     return (
-        <ul className={styles.cardItemList}>
+        <ul className={` ${cardStatus == true ? styles.counting : styles.cardItemList }`}>
             <Card point={0} />
             <Card point={1} />
             <Card point={2} />
