@@ -1,11 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { cardPointReducer, cardStatusReducer, counterStatusReducer } from "./reducers/cardPoint";
+import { avarageStatusReducer, cardPointReducer, cardStatusReducer, counterStatusReducer } from "./reducers/cardPoint";
 
 export const store = configureStore({
     reducer: {
         cardPoint: cardPointReducer.reducer,
         cardStatus: cardStatusReducer.reducer,
         counterStatus: counterStatusReducer.reducer,
+        avarageStatus : avarageStatusReducer.reducer
     }
 });
 
