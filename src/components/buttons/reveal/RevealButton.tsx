@@ -2,7 +2,7 @@
 import * as React from "react";
 import styles from "./RevealButton.module.css"
 import StartNewButton from "@components/buttons/startNew/StartNewButton";
-import { setCardStatus, setCounterStatus } from "@redux/reducers/cardPoint";
+import { setAvarageStatus, setCardStatus, setCounterStatus } from "@redux/reducers/cardPoint";
 import { RootState } from "@redux/store";
 import { useDispatch, useSelector } from "react-redux";
 import {useState} from 'react';
@@ -24,6 +24,9 @@ export const CounterDiv = (
         if(counter === 0) {
             changeCountStatus(false)
             dispatch(setCounterStatus(true))
+            dispatch(setAvarageStatus(true));
+        } else {
+            dispatch(setCounterStatus(false))
         }
     },[counter])
 
@@ -43,11 +46,13 @@ const RevealButton = (
         {changeStatus}: { changeStatus:( val : boolean) => void }
     ) => {
     const cardPoint = useSelector((state: RootState) => state.cardPoint.point);
+    const avarageStatus = useSelector((state: RootState) => state.avarageStatus.status);
     const dispatch = useDispatch();
     const [revealStatus, setRevealStatus] = useState(true);
     const [counterStatus, setCounterStatus] = useState(false);
     const [counter, setCounter] = useState(3); 
 
+    
     const showCardNumber = () => {
         changeStatus(true);
         if (cardPoint) {
