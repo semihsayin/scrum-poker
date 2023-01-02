@@ -9,11 +9,19 @@ export interface CardStatusState {
     status: boolean
 }
 
+export interface CounterStatus {
+    status: boolean
+}
+
 const initialPointState: CardPointState = {
     point: null,
 }
 
 const initialStatusState: CardStatusState = {
+    status: false,
+}
+
+const initialCounterStatus: CounterStatus = {
     status: false,
 }
 
@@ -38,7 +46,18 @@ export const cardStatusReducer = createSlice({
 
 })
 
+export const counterStatusReducer = createSlice({
+    name: 'counterStatus',
+    initialState: initialCounterStatus,
+    reducers: {
+        setCounterStatus: (state, action: PayloadAction<boolean>) => {
+            state.status = action.payload;
+        }
+    }
+})
+
 export const { setCardPoint } = cardPointReducer.actions;
-export const { setCardStatus } = cardStatusReducer.actions
+export const { setCardStatus } = cardStatusReducer.actions;
+export const { setCounterStatus } = counterStatusReducer.actions;
 
 export default cardPointReducer.reducer;
