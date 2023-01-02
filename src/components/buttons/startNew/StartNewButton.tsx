@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./StartNewButton.module.css"
-import { setCardPoint, setCardStatus, setCounterStatus } from '@redux/reducers/cardPoint';
+import { setAvarageStatus, setCardPoint, setCardStatus, setCounterStatus } from '@redux/reducers/cardPoint';
 import { RootState } from "@redux/store";
 
 const StartNewButton = (props: { revealCard: boolean}) => {
@@ -11,9 +11,10 @@ const StartNewButton = (props: { revealCard: boolean}) => {
         dispatch(setCardPoint(null));
         dispatch(setCounterStatus(false));
         dispatch(setCardStatus(false));
+        dispatch(setAvarageStatus(false));
     }
     return (
-        <div className={`${props.revealCard === true ? styles.displayNoneButton : '' }`}>
+        <div>
             <button onClick={startNewVote} className={`${styles.button} ${props.revealCard === true ? styles.displayNoneButton : styles.startButton }`}>Start New Vote </button>
         </div>
     )
