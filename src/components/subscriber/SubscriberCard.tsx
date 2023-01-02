@@ -10,12 +10,14 @@ const SubscriberCard = ({ userName }: SubscriberCardProps) => {
 
     const cardPoint = useSelector((state: RootState) => state.cardPoint.point);
     const cardStatus = useSelector((state: RootState) => state.cardStatus.status);
+    const counterStatus = useSelector((state: RootState) => state.counterStatus.status);
 
+    
     return (
         <div className={`${styles.container}`}>
-            <div style={{display:'flex', alignItems: 'center', justifyContent: 'center'}} className={`${styles.subsCard} ${cardPoint == null ? '' : styles.selected }`}>
-
-                { (cardPoint != null && cardStatus == true)
+            <div style={{display:'flex', alignItems: 'center', justifyContent: 'center'}} className={`${styles.subsCard} ${cardPoint == null ? '' : (counterStatus == true ? '' : styles.selected) }`}>
+                
+                { (cardPoint != null && cardStatus && counterStatus)
                     ? <span>{ cardPoint}</span>
                     :<></>
                 }
