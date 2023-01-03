@@ -15,7 +15,7 @@ const SubscriberCard = ({ userName }: SubscriberCardProps) => {
     
     return (
         <div className={`${styles.container}`}>
-            <div style={{display:'flex', alignItems: 'center', justifyContent: 'center'}} className={`${styles.subsCard} ${cardPoint == null ? '' : (counterStatus == true ? '' : styles.selected) }`}>
+            <div style={{display:'flex', alignItems: 'center', justifyContent: 'center'}} className={`${styles.subsCard} ${cardPoint == null ? '' : (counterStatus == true ? styles.card : styles.selected) }`}>
                 
                 { (cardPoint != null && cardStatus && counterStatus)
                     ? <span>{ cardPoint}</span>
