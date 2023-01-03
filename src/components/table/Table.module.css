@@ -1,16 +1,39 @@
 .tableDiv{
     background: #d7e9ff;
-    border-radius: 2.8rem;
+    border-radius: 1.4rem;
     grid-area: table;
     height: auto;
     margin: 0 auto;
-    min-height: 15.1rem;
-    min-width: 33.8rem;
+    min-height: 7.5rem;
+    min-width: 16.4rem;
     padding: 0 1.6rem;
     position: relative;
-    width: 33.8rem;
+    width: 16.4rem;
     display: flex;
     position: relative;
     align-items: center;
     justify-content: center;
+    margin-bottom: 50px;
+}
+
+.pickSpan{
+    color: #48545d;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.card{
+    align-items: center;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background: #fff;
+    border: 2px solid #3993ff;
+    border-radius: .6rem;
+    color: #3993ff;
+    display: flex;
+    font-weight: 700;
+    height: 6rem;
+    justify-content: center;
+    overflow: hidden;
+    width: 3.5rem;
 }
