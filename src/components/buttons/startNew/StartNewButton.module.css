@@ -22,3 +22,35 @@
 .displayNoneButton{
     display: none;
 }
+.button{
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: .4rem;
+    cursor: pointer;
+    display: inline-flex;
+    font-size: 1.8rem;
+    font-weight: 700;
+    height: 2.8rem;
+    letter-spacing: .02em;
+    outline: 0;
+    padding: 0;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: all .09s linear;
+    background-color: #48545d !important;
+    color: #fff;
+}
+
+.button:hover{
+    background-color: #1a2935 !important;
+}
+
+.buttonText{
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: .02em;
+    text-align: center;
+}
