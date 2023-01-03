@@ -36,7 +36,7 @@ export const CounterDiv = (
             {
                 counter === 0
                 ? <></>
-                :<>{ counter }</>
+                :<span className={styles.counterText}>{ counter }</span>
             }
         </div>
     )
@@ -68,7 +68,9 @@ const RevealButton = (
     
     return (
         <>
-            <button onClick={showCardNumber} className={`${styles.button} ${revealStatus === false ? styles.displayNoneButton : styles.revealButton }`}>Reveal Cards</button>
+            <button onClick={showCardNumber} className={`${styles.button} ${revealStatus === false ? styles.displayNoneButton : styles.revealButton }`}>
+                <span>Reveal Cards</span>
+            </button>
             { counterStatus
                 ? <CounterDiv setCounter={setCounter} counter = {counter} changeCountStatus= { changeCountStatus} />
                 : <StartNewButton revealCard = { revealStatus }/>
