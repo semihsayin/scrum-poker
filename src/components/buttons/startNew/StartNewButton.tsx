@@ -14,8 +14,10 @@ const StartNewButton = (props: { revealCard: boolean}) => {
         dispatch(setAvarageStatus(false));
     }
     return (
-        <div>
-            <button onClick={startNewVote} className={`${styles.button} ${props.revealCard === true ? styles.displayNoneButton : styles.startButton }`}>Start New Vote </button>
+        <div className={`${props.revealCard === true ? styles.displayNoneButton : '' }`}>
+            <button onClick={startNewVote} className={`${styles.button} ${props.revealCard === true ? styles.displayNoneButton : styles.startButton }`}>
+                <span className={styles.buttonText}>Start New Vote </span>
+            </button>
         </div>
     )
 }
