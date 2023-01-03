@@ -17,7 +17,7 @@ const Table = () => {
     return (
         <div className={styles.tableDiv}>
             { cardPoint == null
-                ? <span>Pick your card! { cardPoint }</span>
+                ? <span className={styles.pickSpan}>Pick your card! { cardPoint }</span>
                 : <RevealButton changeStatus= { changeStatus }/>
             }
 
