@@ -1,18 +1,45 @@
 .revealButton{
+    align-items: center;
+    border: 0;
+    border-radius: .4rem;
     cursor: pointer;
-    width: 150px;
-    height: 25px;
-    font-size: 20px;
-    font-weight: 350;
+    display: inline-flex;
+    font-size: .9rem;
+    font-weight: 700;
+    height: 2.6rem;
+    letter-spacing: .02em;
+    outline: 0;
+    padding: 0 1.2rem;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: all .09s linear;
+    background: #3993ff;
+    color: #fff;
+}
+
+.revealButton:hover{
+    background: #74b3ff;
+}
+
+.buttonText{
+    cursor: pointer;
+    font-size: 1.8rem;
+    font-weight: 700;
     letter-spacing: .02em;
     text-align: center;
-    box-sizing: border-box;
-    outline-color: #74b3ff;
-    top: 0;
-    background-color: #74b3ff;
-    border-radius: 10;
+    
 }
+
 
 .displayNoneButton{
     display: none;
+}
+
+.counterText{
+    box-sizing: border-box;
+    outline-color: #74b3ff;
+    color: #74b3ff;
+    font-size: 1.8rem;
+    font-weight: 600;
 }
