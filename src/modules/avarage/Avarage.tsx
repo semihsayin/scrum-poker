@@ -8,6 +8,7 @@ const Avarage = () => {
     const cardPoint = useSelector((state: RootState) => state.cardPoint.point);
     const playerNumber = useSelector((state: RootState) => state.playerNumber.playerNumber);
     const sumOfVote = useSelector((state: RootState) => state.sumOfVoter.sumOfVote);
+    const votePoint = useSelector((state:RootState) => state.numberOfVotes)
 
     let average;
     if(typeof cardPoint === 'number') {
@@ -19,7 +20,53 @@ const Avarage = () => {
             
             <div className={styles.avarageDiv}>
                 
-                <AverageCards />
+                { votePoint.zero != 0
+                    ? <AverageCards voteNumber= {votePoint.zero} cardNumber={0}/>
+                    : <></>
+                }
+
+                { votePoint.one != 0
+                    ? <AverageCards voteNumber= {votePoint.one} cardNumber={1}/>
+                    : <></>
+                }
+
+                { votePoint.two != 0
+                    ? <AverageCards voteNumber= {votePoint.two} cardNumber={2}/>
+                    : <></>
+                }
+                { votePoint.three != 0
+                    ? <AverageCards voteNumber= {votePoint.three} cardNumber={3}/>
+                    : <></>
+                }
+                { votePoint.five != 0 
+                    ? <AverageCards voteNumber= {votePoint.five} cardNumber={5}/>
+                    : <></>
+                }
+                { votePoint.eight != 0
+                    ? <AverageCards voteNumber= {votePoint.eight} cardNumber={8}/>
+                    : <></>
+                }
+                { votePoint.thirteen != 0
+                    ? <AverageCards voteNumber= {votePoint.thirteen} cardNumber={13}/>
+                    : <></>
+                }
+                
+                { votePoint.twentyone != 0
+                    ? <AverageCards voteNumber= {votePoint.twentyone} cardNumber={21}/>
+                    : <></>
+                }
+                { votePoint.thirtyfour != 0
+                    ? <AverageCards voteNumber= {votePoint.thirtyfour} cardNumber={34}/>
+                    : <></>
+                }
+                { votePoint.fiftyfive != 0
+                    ? <AverageCards voteNumber= {votePoint.fiftyfive} cardNumber={55}/>
+                    : <></>
+                }
+                { votePoint.eightynine != 0
+                    ? <AverageCards voteNumber= {votePoint.eightynine} cardNumber={89}/>
+                    : <></>
+                }
                 
                 <div className={styles.halfDiv}>
                     <div className={styles.point}>
