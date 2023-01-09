@@ -1,0 +1,23 @@
+.halfDiv{
+    flex: 0.5;
+    width: 50%;
+}
+.vote{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.cardAvarage{
+    align-items: center;
+    border: 2px solid #a8aeb2;
+    border-color: #1a2935;
+    border-radius: .8rem;
+    color: #1a2935;
+    display: flex;
+    font-size: 1.8rem;
+    font-weight: 700;
+    height: 6.4rem;
+    justify-content: center;
+    width: 4rem;
+}
