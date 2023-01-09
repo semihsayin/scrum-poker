@@ -39,7 +39,7 @@ const GamePageHeader = () => {
             eightynine += 1
     }
     
-    dispatch(setNumberOfVotes({zero,one,two,three,eight,thirteen, twentyone, thirtyfour, fiftyfive, eightynine}))
+    dispatch(setNumberOfVotes({ zero,one,two,three,eight,thirteen, twentyone, thirtyfour, fiftyfive, eightynine }))
     dispatch(setPlayerNumber(numbers.length))
     dispatch(setSumOfVote(sum))
 
@@ -58,7 +58,6 @@ const GamePageHeader = () => {
                         </div>
                     </li>
                 ))}
-                <>{eight }</>
             </ul>
         </div>
     )
