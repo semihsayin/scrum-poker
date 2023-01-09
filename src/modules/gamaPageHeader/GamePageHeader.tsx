@@ -1,4 +1,4 @@
-import { setPlayerNumber, setSumOfVote } from "@redux/reducers/cardPoint";
+import { setNumberOfVotes, setPlayerNumber, setSumOfVote } from "@redux/reducers/cardPoint";
 import { RootState } from "@redux/store";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
@@ -8,18 +8,38 @@ const GamePageHeader = () => {
     const cardPoint = useSelector((state: RootState) => state.cardPoint.point);
     const cardStatus = useSelector((state: RootState) => state.cardStatus.status);
     const counterStatus = useSelector((state: RootState) => state.counterStatus.status);
-    const playerNumber = useSelector((state: RootState) => state.playerNumber.playerNumber);
-    const sumOfVote = useSelector((state: RootState) => state.sumOfVoter.sumOfVote);
+    //const one = useSelector((state: RootState) => state.numberOfVotes.one);
 
     const numbers = [8,13,21,34,55,89];
     let sum = 0;
+    let zero = 0,one = 0,two = 0,three = 0,eight = 0,thirteen = 0, twentyone = 0, thirtyfour = 0, fiftyfive = 0, eightynine = 0;
+    const dispatch = useDispatch();
 
     for(let i = 0; i < numbers.length; i++){
         sum += numbers[i];
-        
+        if(numbers[i] == 0)
+            zero += 1
+        else if(numbers[i] == 1)
+            one += 1
+        else if(numbers[i] == 2)
+            two += 1
+        else if(numbers[i] == 3)
+            three += 1
+        else if(numbers[i] == 8)
+            eight += 1
+        else if(numbers[i] == 13)
+            thirteen += 1
+        else if(numbers[i] == 21)
+            twentyone += 1
+        else if(numbers[i] == 34)
+            thirtyfour += 1
+        else if(numbers[i] == 55)
+            fiftyfive += 1
+        else if(numbers[i] == 89)
+            eightynine += 1
     }
     
-    const dispatch = useDispatch();
+    dispatch(setNumberOfVotes({zero,one,two,three,eight,thirteen, twentyone, thirtyfour, fiftyfive, eightynine}))
     dispatch(setPlayerNumber(numbers.length))
     dispatch(setSumOfVote(sum))
 
@@ -38,7 +58,7 @@ const GamePageHeader = () => {
                         </div>
                     </li>
                 ))}
-                
+                <>{eight }</>
             </ul>
         </div>
     )
