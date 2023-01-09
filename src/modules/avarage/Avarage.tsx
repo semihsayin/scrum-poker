@@ -1,3 +1,4 @@
+import AverageCards from '@components/averageCards/AverageCards';
 import { RootState } from '@redux/store';
 import { useSelector } from 'react-redux';
 import styles from './Avarage.module.css'
@@ -17,18 +18,9 @@ const Avarage = () => {
         <div style={{width: '100%',height: '70%',display: 'flex', justifyContent:'center',alignItems:'center'}}>
             
             <div className={styles.avarageDiv}>
-                <div className={`${styles.halfDiv} ${styles.vote}`}>
-                    <div style={{ display:'flex', justifyContent:'center',marginBottom: '10px'}}>
-                        <div className={styles.stick}></div>
-                    </div>
-                    <div style={{ display:'flex', justifyContent:'center',marginBottom: '10px'}}>
-                        <div className={styles.cardAvarage}>{ average }</div>
-                    </div>
-                    <div style={{ display:'flex', justifyContent:'center',marginBottom: '10px'}}>
-                        <span style={{fontSize: '1.2rem'}}>1 Vote</span>
-                    </div>
-                </div>
-
+                
+                <AverageCards />
+                
                 <div className={styles.halfDiv}>
                     <div className={styles.point}>
                         <span className={styles.pointHeader}>Avarage :</span>
