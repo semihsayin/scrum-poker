@@ -24,6 +24,10 @@ export interface SumOfVote {
     sumOfVote: number,
 }
 
+export interface NumbersArray {
+    numbers: number[],
+}
+
 export interface NumberOfVotes {
     zero: number,
     one: number,
@@ -36,6 +40,10 @@ export interface NumberOfVotes {
     thirtyfour: number,
     fiftyfive: number,
     eightynine: number,
+}
+
+const initialNumbersArray: NumbersArray = {
+    numbers: [8,13,21,34,55,89],
 }
 
 const initialPointState: CardPointState = {
@@ -76,6 +84,15 @@ const initialNumberOfVotes: NumberOfVotes = {
     eightynine: 0,
 }
 
+export const numbersArrayReducer = createSlice({
+    name: 'numbersArray',
+    initialState: initialNumbersArray,
+    reducers: {
+        setNumbersArray: (state, action: PayloadAction<number>) => {
+            state.numbers.push(action.payload);
+        }
+    }
+})
 export const cardPointReducer = createSlice({
     name: 'cardPoint',
     initialState: initialPointState,
