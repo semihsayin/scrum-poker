@@ -8,9 +8,8 @@ const GamePageHeader = () => {
     const cardPoint = useSelector((state: RootState) => state.cardPoint.point);
     const cardStatus = useSelector((state: RootState) => state.cardStatus.status);
     const counterStatus = useSelector((state: RootState) => state.counterStatus.status);
-    //const one = useSelector((state: RootState) => state.numberOfVotes.one);
+    const numbers = useSelector((state: RootState) => state.numbersArray.numbers)
 
-    const numbers = [8,13,21,34,55,89];
     let sum = 0;
     let zero = 0,one = 0,two = 0,three = 0,eight = 0,thirteen = 0, twentyone = 0, thirtyfour = 0, fiftyfive = 0, eightynine = 0;
     const dispatch = useDispatch();
