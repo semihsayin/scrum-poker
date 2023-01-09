@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { avarageStatusReducer, cardPointReducer, cardStatusReducer, counterStatusReducer, numberOfVotes, playerNumberReducer, sumOfVoteReducer } from "./reducers/cardPoint";
+import { avarageStatusReducer, cardPointReducer, cardStatusReducer, counterStatusReducer, numberOfVotes, numbersArrayReducer, playerNumberReducer, sumOfVoteReducer } from "./reducers/cardPoint";
 
 export const store = configureStore({
     reducer: {
@@ -10,6 +10,7 @@ export const store = configureStore({
         playerNumber : playerNumberReducer.reducer,
         sumOfVoter: sumOfVoteReducer.reducer,
         numberOfVotes: numberOfVotes.reducer,
+        numbersArray: numbersArrayReducer.reducer,
     }
 });
 
