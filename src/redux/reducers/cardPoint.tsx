@@ -24,6 +24,20 @@ export interface SumOfVote {
     sumOfVote: number,
 }
 
+export interface NumberOfVotes {
+    zero: number,
+    one: number,
+    two: number,
+    three: number,
+    five: number,
+    eight: number,
+    thirteen: number,
+    twentyone: number,
+    thirtyfour: number,
+    fiftyfive: number,
+    eightynine: number,
+}
+
 const initialPointState: CardPointState = {
     point: null,
 }
@@ -46,6 +60,20 @@ const initialPlayerNumber: PlayerNumber = {
 
 const initialSumOfVote: SumOfVote = {
     sumOfVote: 0,
+}
+
+const initialNumberOfVotes: NumberOfVotes = {
+    zero: 0,
+    one: 0,
+    two: 0,
+    three: 0,
+    five: 0,
+    eight: 0,
+    thirteen: 0,
+    twentyone: 0,
+    thirtyfour: 0,
+    fiftyfive: 0,
+    eightynine: 0,
 }
 
 export const cardPointReducer = createSlice({
@@ -99,7 +127,7 @@ export const playerNumberReducer = createSlice({
 })
 
 export const sumOfVoteReducer = createSlice({
-    name: 'playerNumber',
+    name: 'sumOfNumber',
     initialState: initialSumOfVote,
     reducers: {
         setSumOfVote: (state, action: PayloadAction<number>) => {
@@ -108,11 +136,33 @@ export const sumOfVoteReducer = createSlice({
     }
 })
 
+export const numberOfVotes = createSlice({
+    name: 'numberOfVote',
+    initialState: initialNumberOfVotes,
+    reducers: {
+        setNumberOfVotes: (state, action: PayloadAction<{ zero: number, one: number, two : number, three: number, eight: number, thirteen: number,twentyone : number, thirtyfour: number, fiftyfive: number, eightynine: number }>) => {
+            state.zero = action.payload.zero;
+            state.one = action.payload.one;
+            state.two = action.payload.two;
+            state.three = action.payload.three;
+            state.eight = action.payload.eight;
+            state.thirteen = action.payload.thirteen;
+            state.twentyone = action.payload.twentyone;
+            state.thirtyfour = action.payload.thirtyfour;
+            state.fiftyfive = action.payload.fiftyfive;
+            state.eightynine = action.payload.eightynine;
+        }
+    }
+})
+
+
+
 export const { setCardPoint } = cardPointReducer.actions;
 export const { setCardStatus } = cardStatusReducer.actions;
 export const { setCounterStatus } = counterStatusReducer.actions;
 export const { setAvarageStatus } = avarageStatusReducer.actions;
 export const { setPlayerNumber } = playerNumberReducer.actions;
 export const { setSumOfVote } = sumOfVoteReducer.actions;
+export const { setNumberOfVotes } = numberOfVotes.actions;
 
 export default cardPointReducer.reducer;
