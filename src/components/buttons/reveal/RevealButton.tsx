@@ -2,7 +2,7 @@
 import * as React from "react";
 import styles from "./RevealButton.module.css"
 import StartNewButton from "@components/buttons/startNew/StartNewButton";
-import { setAvarageStatus, setCardStatus, setCounterStatus } from "@redux/reducers/cardPoint";
+import { setAvarageStatus, setCardStatus, setCounterStatus, setNumbersArray } from "@redux/reducers/cardPoint";
 import { RootState } from "@redux/store";
 import { useDispatch, useSelector } from "react-redux";
 import {useState} from 'react';
@@ -51,19 +51,19 @@ const RevealButton = (
     const [revealStatus, setRevealStatus] = useState(true);
     const [counterStatus, setCounterStatus] = useState(false);
     const [counter, setCounter] = useState(3); 
-
     
     const showCardNumber = () => {
         changeStatus(true);
         if (cardPoint) {
             dispatch(setCardStatus(true));
+            dispatch(setNumbersArray(cardPoint));
         }
         setCounterStatus(true)
         setRevealStatus(false)
     }
 
     const changeCountStatus = ( statusCount: boolean) => {
-        setCounterStatus(statusCount);
+        setCounterStatus(statusCount)
     }
     
     return (
