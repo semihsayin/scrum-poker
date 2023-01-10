@@ -157,12 +157,13 @@ export const numberOfVotes = createSlice({
     name: 'numberOfVote',
     initialState: initialNumberOfVotes,
     reducers: {
-        setNumberOfVotes: (state, action: PayloadAction<{ zero: number, one: number, two : number, three: number, eight: number, thirteen: number,twentyone : number, thirtyfour: number, fiftyfive: number, eightynine: number }>) => {
+        setNumberOfVotes: (state, action: PayloadAction<{ zero: number, one: number, two : number, three: number, five: number, eight: number, thirteen: number,twentyone : number, thirtyfour: number, fiftyfive: number, eightynine: number }>) => {
             state.zero = action.payload.zero;
             state.one = action.payload.one;
             state.two = action.payload.two;
             state.three = action.payload.three;
             state.eight = action.payload.eight;
+            state.five = action.payload.five;
             state.thirteen = action.payload.thirteen;
             state.twentyone = action.payload.twentyone;
             state.thirtyfour = action.payload.thirtyfour;
@@ -181,5 +182,6 @@ export const { setAvarageStatus } = avarageStatusReducer.actions;
 export const { setPlayerNumber } = playerNumberReducer.actions;
 export const { setSumOfVote } = sumOfVoteReducer.actions;
 export const { setNumberOfVotes } = numberOfVotes.actions;
+export const { setNumbersArray } = numbersArrayReducer.actions;
 
 export default cardPointReducer.reducer;
