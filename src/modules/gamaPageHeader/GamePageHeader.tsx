@@ -11,7 +11,7 @@ const GamePageHeader = () => {
     const numbers = useSelector((state: RootState) => state.numbersArray.numbers)
 
     let sum = 0;
-    let zero = 0,one = 0,two = 0,three = 0,eight = 0,thirteen = 0, twentyone = 0, thirtyfour = 0, fiftyfive = 0, eightynine = 0;
+    let zero = 0,one = 0,two = 0,three = 0,five = 0,eight = 0,thirteen = 0, twentyone = 0, thirtyfour = 0, fiftyfive = 0, eightynine = 0;
     const dispatch = useDispatch();
 
     for(let i = 0; i < numbers.length; i++){
@@ -24,6 +24,8 @@ const GamePageHeader = () => {
             two += 1
         else if(numbers[i] == 3)
             three += 1
+        else if(numbers[i] == 5)
+            five += 1
         else if(numbers[i] == 8)
             eight += 1
         else if(numbers[i] == 13)
@@ -38,7 +40,7 @@ const GamePageHeader = () => {
             eightynine += 1
     }
     
-    dispatch(setNumberOfVotes({ zero,one,two,three,eight,thirteen, twentyone, thirtyfour, fiftyfive, eightynine }))
+    dispatch(setNumberOfVotes({ zero,one,two,three,five,eight,thirteen, twentyone, thirtyfour, fiftyfive, eightynine }))
     dispatch(setPlayerNumber(numbers.length))
     dispatch(setSumOfVote(sum))
 
