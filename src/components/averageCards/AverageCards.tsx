@@ -26,4 +26,5 @@ const AverageCards = (props: { voteNumber: number, cardNumber: number}) => {
     )
 }
 
+
 export default AverageCards;
