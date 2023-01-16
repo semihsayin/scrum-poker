@@ -9,8 +9,10 @@ const AverageCards = (props: { voteNumber: number, cardNumber: number}) => {
     console.log(percentage)
     return (
         <div className={`${styles.halfDiv} ${styles.vote}`}>
-            <div style={{ display:'flex', justifyContent:'center',marginBottom: '10px'}}>
-                <div className={styles.stick} style={{height: percentage+"px"}}></div>
+            <div style={{ marginBottom: '10px', display: 'flex', justifyContent:'center'}}>
+                <div className={styles.stickBg}>
+                    <div className={styles.stick} style={{height: percentage+"px"}}></div>
+                </div>
             </div>
 
             <div style={{ display:'flex', justifyContent:'center',marginBottom: '10px'}}>

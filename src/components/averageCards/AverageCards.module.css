@@ -1,13 +1,22 @@
 .halfDiv{
     flex: 0.5;
     width: 50%;
+    margin-right: 20px;
 }
 .vote{
     display: flex;
     flex-direction: column;
 
 }
-
+.stickBg{
+    display:flex;
+    justify-content:center;
+    background-color:gray;
+    height: 100px;
+    width: 10px;
+    align-items: flex-end;
+    border-radius: .8rem;
+}
 .cardAvarage{
     align-items: center;
     border: 2px solid #a8aeb2;
@@ -27,4 +36,6 @@
     width: 10px;
     border-radius: .8rem;
     margin-bottom: 15px;
+    margin-bottom: 0;
+  
 }
